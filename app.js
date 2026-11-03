@@ -1,5 +1,16 @@
 var app = angular.module('myApp', []);
 
-app.controller('MyController', function($scope) {
-    $scope.name = "karthik";
+//parent controller
+
+app.controller('CollegeController', function($scope) {
+    $scope.collegeName = "MIT college";
 });
+
+//child controller
+
+app.controller(
+    "StudentController", function($scope) {
+        $scope.name = "Karthik";
+        $scope.department = "Information Science";
+    }
+);
