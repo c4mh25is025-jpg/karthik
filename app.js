@@ -1,37 +1,68 @@
-var app = angular.module('myApp', []);
 
-//parent controller
+/*
+Name: Your Full Name
+Department: Your Department
+*/
 
-app.controller('CollegeController', function($scope) {
-    $scope.collegeName = "MIT college";
+// Create AngularJS Application
+
+var app = angular.module("collegeApp", []);
+
+
+// Parent Controller
+
+app.controller("CollegeController", function($scope) {
+
+    // College Name
+
+    $scope.collegeName = "  MIT College";
+
 });
 
-//child controller
 
-app.controller(
-    "StudentController", function($scope) {
-        $scope.name = "karthik";
-        $scope.department = "Computer Science";
-        $scope.semester = 3;
+// Child Controller
 
-        //aray
-        $scope.students =[
-            "AMULYA E",
-            "AKSHAY U SHET",
-            "AMRUTHA H S",
-            "AYUSH KUMAR K S",
-        ];
+app.controller("StudentController", function($scope) {
 
-//function to add a student ussing ng click
-        $scope.addStudent = function() {
-            if ($scope.name.trim() !==""){
-                $scope.students.push($scope.name);
-                $scope.name = "";
-            }
-            else{
-                alert("Please enter a student name");
-            }
-        };
-        
-    }
-);
+
+    // Array of Sample Student Names
+
+    $scope.students = [
+        "Rahul",
+        "Priya",
+        "Arun"
+    ];
+
+
+    // Initially Hide Student Details
+
+    $scope.showDetails = false;
+
+
+    // Function to Add Student
+
+    $scope.addStudent = function() {
+
+        // Check Student Name
+
+        if ($scope.studentName && $scope.studentName.trim() !== "") {
+
+            // Add Student to Array
+
+            $scope.students.push($scope.studentName.trim());
+
+            // Clear Student Name Input
+
+            $scope.studentName = "";
+
+        }
+
+        else {
+
+            alert("Please enter student name!");
+
+        }
+
+    };
+
+});
