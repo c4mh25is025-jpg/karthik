@@ -3,7 +3,7 @@ var app = angular.module('myApp', []);
 //parent controller
 
 app.controller('CollegeController', function($scope) {
-    $scope.collegeName = "abc college";
+    $scope.collegeName = "MIT college";
 });
 
 //child controller
@@ -11,15 +11,27 @@ app.controller('CollegeController', function($scope) {
 app.controller(
     "StudentController", function($scope) {
         $scope.name = "karthik";
-        $scope.department = "Information Science";
+        $scope.department = "Computer Science";
         $scope.semester = 3;
 
         //aray
         $scope.students =[
-            "AYUSH KUMAR K S",
-            "AMRUTHA H S",
+            "AMULYA E",
             "AKSHAY U SHET",
-        
+            "AMRUTHA H S",
+            "AYUSH KUMAR K S",
         ];
+
+//function to add a student ussing ng click
+        $scope.addStudent = function() {
+            if ($scope.name.trim() !==""){
+                $scope.students.push($scope.name);
+                $scope.name = "";
+            }
+            else{
+                alert("Please enter a student name");
+            }
+        };
+        
     }
 );
